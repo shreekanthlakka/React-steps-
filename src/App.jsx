@@ -1,3 +1,5 @@
+/* eslint-disable react/prop-types*/
+
 import { useState } from "react";
 
 const messages = [
@@ -35,28 +37,38 @@ function App() {
                         step {step + 1} : {messages[step]}
                     </p>
                     <div className="buttons">
-                        <button
+                        <Button
+                            textColor="#fff"
+                            bgColor="#7950f2"
                             onClick={handlePrev}
-                            style={{
-                                backgroundColor: "#7950f2",
-                                color: "#fff",
-                            }}
                         >
-                            Previous
-                        </button>
-                        <button
+                            👈Prev
+                        </Button>
+                        <Button
+                            textColor="#fff"
+                            bgColor="#7950f2"
                             onClick={handleNext}
-                            style={{
-                                backgroundColor: "#7950f2",
-                                color: "#fff",
-                            }}
                         >
-                            Next
-                        </button>
+                            Next👉
+                        </Button>
                     </div>
                 </div>
             )}
         </>
+    );
+}
+
+function Button({ children, textColor, bgColor, onClick }) {
+    return (
+        <button
+            onClick={onClick}
+            style={{
+                backgroundColor: bgColor,
+                color: textColor,
+            }}
+        >
+            {children}
+        </button>
     );
 }
 
